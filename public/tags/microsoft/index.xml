@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microsoft on HeSteIT</title>
+    <link>https://hesteit.github.io/tags/microsoft/</link>
+    <description>Recent content in Microsoft on HeSteIT</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 23 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://hesteit.github.io/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Time @Microsoft Ignite – Lessons learned</title>
+      <link>https://hesteit.github.io/posts/first-time-at-microsoft-ignite/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hesteit.github.io/posts/first-time-at-microsoft-ignite/</guid>
+      <description>This year, I attended my very first Microsoft Ignite in Orlando, Florida. Besides some very interesting announcements (I’ll cover the most important ones from my point of view in the second part), I thought it would be nice to share some advice for other &amp;ldquo;newcomers&amp;rdquo; when they go for their first Microsoft Ignite…
+Plan your schedule ahead! Plan your schedule weeks in advance. I didn’t plan my sessions until each morning, which led to nervous looking-at-my-phone-while-walking in the morning and searching-for-the-next-session while sitting in another session – both of which is quite distracting.</description>
+    </item>
+    
+  </channel>
+</rss>

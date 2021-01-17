@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.80.0" />
+
+    
+    
+    
+
+<title>Adding a button to call a custom Flow on a SharePoint Online list item or document from a Teams tab • HeSteIT</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Adding a button to call a custom Flow on a SharePoint Online list item or document from a Teams tab"/>
+<meta name="twitter:description" content="This week, I overheard some complaints about Microsoft Teams not having full support for the list and library commands that are available directly within the SharePoint Online site that the list or library lives in. While these features might be coming in the future or are already available if you choose to display the list or library as a &ldquo;website&rdquo; tab in Teams, you cannot start a flow on a specific item with this workaround – the flow command is missing from the options:"/>
+
+<meta property="og:title" content="Adding a button to call a custom Flow on a SharePoint Online list item or document from a Teams tab" />
+<meta property="og:description" content="This week, I overheard some complaints about Microsoft Teams not having full support for the list and library commands that are available directly within the SharePoint Online site that the list or library lives in. While these features might be coming in the future or are already available if you choose to display the list or library as a &ldquo;website&rdquo; tab in Teams, you cannot start a flow on a specific item with this workaround – the flow command is missing from the options:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hesteit.github.io/posts/call-flow-on-sp-item-from-teams-tab/" />
+<meta property="article:published_time" content="2019-03-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-08T00:00:00+00:00" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.99d3267391d8a537a93f479afed6f785c8e4b7722c1c3fa80a025dc3ea2dcdfe.css" integrity="sha256-mdMmc5HYpTepP0ea/tb3hcjkt3IsHD&#43;oCgJdw&#43;otzf4=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://hesteit.github.io/">
+        
+          HeSteIT
+        
+        </a>
+      </span>
+      
+        
+        
+        
+        <div class="author-image">
+          <img src="https://hesteit.github.io/profile.jpg" alt="Author Image" class="img--circle img--headshot element--center">
+        </div>
+        
+      
+      
+      <p class="site__description">
+         This little blog is all about my learnings with SharePoint, Microsoft 365 and Azure in this big, cloudy world... 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">HeSteIT</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/about/about">
+						<span>About</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/HeSteIT" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	<a href="https://github.com/HeSteIT" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://linkedin.com/in/stefan-hefele" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	<a href="https://www.xing.com/profile/Stefan_Hefele5" rel="me"><i class="fab fa-xing fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>
+
+      </div>
+    </div>
+    
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Adding a button to call a custom Flow on a SharePoint Online list item or document from a Teams tab</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Mar 8, 2019
+    
+    
+    
+      
+      
+          in
+          
+          
+              <a class="badge badge-category" href="/categories/microsoft-365">MICROSOFT 365</a>
+              •
+          
+              <a class="badge badge-category" href="/categories/power-automate">POWER AUTOMATE</a>
+              
+          
+      
+    
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/customizing">customizing</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/microsoft-teams">microsoft teams</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/flow">flow</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/flow-button">flow button</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/teams-tab">teams tab</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/column-formatting">column formatting</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/sharepoint">sharepoint</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/sharepoint-online">sharepoint online</a>
+          
+      
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 3 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p><img src="/FlowButton-1.png" alt="" title="SharePoint Library in MS Teams with Flow Button"></p>
+<p>This week, I overheard some complaints about Microsoft Teams not having full support for the list and library commands that are available directly within the SharePoint Online site that the list or library lives in. While these features might be coming in the future or are already available if you choose to display the list or library as a &ldquo;website&rdquo; tab in Teams, you cannot start a flow on a specific item with this workaround – the flow command is missing from the options:</p>
+<p><img src="/FlowButton-2.png" alt="Document library in a &ldquo;document library&rdquo; tab in Teams" title="SharePoint Library as Website in Teams, missing the Flow Button">
+<em>Document library in a &ldquo;document library&rdquo; tab in Teams</em></p>
+<p><img src="/FlowButton-3.png" alt="The same document library shown in the &ldquo;Files&rdquo; tab in Teams" title="SharePoint Library in the Files Tab of Teams, also missing Flow Button">
+<em>The same document library shown in the &ldquo;Files&rdquo; tab in Teams</em></p>
+<p>So, how can we start a flow on an item or a document without having to go to the list or library on SharePoint Online? The answer is: column formatting!</p>
+<p>But let’s quickly talk through the steps necessary:</p>
+<h3 id="1-create-a-flow-with-the-for-a-selected-item-trigger">1. Create a flow with the &ldquo;for a selected item&rdquo; trigger</h3>
+<p>Create the flow you want to run on selected items of the list/library. Use the SharePoint trigger &ldquo;For a selected item&rdquo; or &ldquo;for a selected file&rdquo; to get the context of the item or file you selected in your Teams tab.</p>
+<p><img src="/FlowButton-4.png" alt="The &ldquo;for a selected file&rdquo; SharePoint Flow Trigger" title="Flow Trigger 'for a selected file'">
+<em>The &ldquo;for a selected file&rdquo; SharePoint Flow Trigger</em></p>
+<h3 id="2-apply-column-formatting-to-create-a-flow-button">2. Apply column formatting to create a flow button</h3>
+<p>Use column formatting on a column in the list/library to create a flow button. I created a column &ldquo;Start Flow&rdquo; as Single Line of Text, but you can use any column that supports column formatting. You can find a pretty good example here: <a href="https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/column-formatting#create-a-button-to-launch-a-flow">https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/column-formatting#create-a-button-to-launch-a-flow</a>. All you need to do is to adjust the text you want to be displayed on the &ldquo;button&rdquo; and replace the ID in the last line of content of the sample with the ID of the flow you just created (use the URL when in editing mode to get it).</p>
+<p>To apply the column formatting, click on the column header, hover over column settings, select &ldquo;format this column&rdquo; and paste you adjusted JSON-snippet in there.</p>
+<p><img src="/FlowButton-5.png" alt="Edit column formatting" title="Edit column formatting"></p>
+<p><img src="/FlowButton-6.png" alt="JSON column formatting" title="JSON column formatting"></p>
+<h3 id="3-add-the-column-to-the-list-or-library-view">3. Add the column to the list or library view</h3>
+<p>Select the view you want to show within your Teams tab later and add you new column to it. Click &ldquo;Add column&rdquo;, &ldquo;Show/hide columns&rdquo; and select your newly created and formatted column. Don’t forget to save!</p>
+<p><img src="/FlowButton-7.png" alt="Edit view columns" title="Edit view columns"></p>
+<h3 id="4-add-the-list-or-library-view-to-a-new-teams-tab">4. Add the list or library view to a new Teams tab</h3>
+<p>Copy the URL of you list or library view from your browser and switch to Teams. There, add a new tab inside a Channel. Do NOT pick &ldquo;SharePoint&rdquo; or &ldquo;Document library&rdquo;, as this does not show a specific view but default fields. Instead, pick &ldquo;Website&rdquo;. In the dialogue, paste in your URL and give your tab a name.</p>
+<p><img src="/FlowButton-8.png" alt="Add library as Website in Teams" title="Add library as Website in Teams"></p>
+<p>Voilà, you &ldquo;Start Flow&rdquo; column is now visible in Teams! Whenever you want to manually start a flow on your item or document, just click on your button, fill in the required information, and start the flow.</p>
+<p><img src="/FlowButton-9.png" alt="The document library as a tab in Teams – with Flow button!" title="SharePoint Document Library in Teams with Flow Button">
+<em>The document library as a tab in Teams – with Flow button!</em></p>
+<p><img src="/FlowButton-10.png" alt="The panel is displayed just like in SharePoint Online" title="Flow Start panel shown inside Teams Tab">
+<em>The panel is displayed just like in SharePoint Online</em></p>
+<p>Have fun!</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/posts/first-time-at-microsoft-ignite/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">First Time @Microsoft Ignite – Lessons learned</span>
+    </a>
+    
+    
+    <a href="/posts/networking-day-recap/" class="navigation-next">
+      <span class="navigation-tittle">Networking Day Recap</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
+    
+</div>
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>customizing on HeSteIT</title>
+    <link>https://hesteit.github.io/tags/customizing/</link>
+    <description>Recent content in customizing on HeSteIT</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://hesteit.github.io/tags/customizing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding a button to call a custom Flow on a SharePoint Online list item or document from a Teams tab</title>
+      <link>https://hesteit.github.io/posts/call-flow-on-sp-item-from-teams-tab/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hesteit.github.io/posts/call-flow-on-sp-item-from-teams-tab/</guid>
+      <description>This week, I overheard some complaints about Microsoft Teams not having full support for the list and library commands that are available directly within the SharePoint Online site that the list or library lives in. While these features might be coming in the future or are already available if you choose to display the list or library as a &amp;ldquo;website&amp;rdquo; tab in Teams, you cannot start a flow on a specific item with this workaround – the flow command is missing from the options:</description>
+    </item>
+    
+  </channel>
+</rss>

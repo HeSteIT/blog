@@ -3,7 +3,7 @@
 ##title = "HeSteIT"
 
 ## Basic Configuration
-baseurl = "HeSteIT.github.io"
+baseurl = "https://hesteit.github.io/"
 languageCode = "en"
 
 title = "HeSteIT"
