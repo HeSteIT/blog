@@ -1,0 +1,4 @@
+[submodule "HeSteIT/public"]
+	path = HeSteIT/public
+	url = https://github.com/HeSteIT/HeSteIT.github.io.git
+	branch = main
